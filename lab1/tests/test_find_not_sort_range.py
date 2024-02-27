@@ -20,7 +20,7 @@ class Test(unittest.TestCase):
         self.assertEqual(find_not_sort_range(array), (-1, -1))
 
     def test_another_simple_array(self):
-        array = [1,3,6,8,4,11,5,10,12,16]
+        array = [1, 3, 6, 8, 4, 11, 5, 10, 12, 16]
         self.assertEqual(find_not_sort_range(array), (2,7))
 
 if __name__ == '__main__':

@@ -21,14 +21,15 @@ def find_not_sort_range(array):
                 left_position += 1
         elif array[right_position] > array[right_position-1]:
                 right_position -= 1
+
+        if left_position == right_position:
+            return -1, -1
     else:
         left_position += 1
 
     not_sorted_array = array[left_position : right_position+1]
 
-    if len(not_sorted_array) == len(array):
-        return 0, len(array)-1
-    elif not not_sorted_array:
+    if not not_sorted_array:
         return -1, -1
 
     max_el = find_max(not_sorted_array)
