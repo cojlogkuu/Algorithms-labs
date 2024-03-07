@@ -1,5 +1,5 @@
 import unittest
-from lab1.src.find_not_sort_range import find_not_sort_range
+from src.find_range_of_unsorted_array import find_not_sort_range
 
 
 class Test(unittest.TestCase):
