@@ -1,5 +1,5 @@
 import unittest
-from src.is_tree_balanced import BinaryTree
+from src.is_tree_balanced import BinaryTree, is_tree_balanced
 
 
 class Test(unittest.TestCase):
@@ -11,7 +11,7 @@ class Test(unittest.TestCase):
         root.left.left = BinaryTree(4)
         root.left.right = BinaryTree(5)
 
-        self.assertEqual(BinaryTree.is_tree_balanced(root), True)
+        self.assertEqual(is_tree_balanced(root), True)
 
     def test_2_balanced_tree(self):
         root = BinaryTree(1)
@@ -26,7 +26,7 @@ class Test(unittest.TestCase):
         root.right.right.right = BinaryTree(11)
         root.right.left = BinaryTree(9)
 
-        self.assertEqual(BinaryTree.is_tree_balanced(root), True)
+        self.assertEqual(is_tree_balanced(root), True)
 
     def test_1_not_balanced_tree(self):
         root = BinaryTree(1)
@@ -40,7 +40,7 @@ class Test(unittest.TestCase):
         root.left.right.right = BinaryTree(7)
         root.right.right.right = BinaryTree(11)
 
-        self.assertEqual(BinaryTree.is_tree_balanced(root), False)
+        self.assertEqual(is_tree_balanced(root), False)
 
     def test_2_not_balanced_tree(self):
         root = BinaryTree(1)
@@ -50,12 +50,12 @@ class Test(unittest.TestCase):
         root.left.right = BinaryTree(5)
         root.left.left.left = BinaryTree(6)
 
-        self.assertEqual(BinaryTree.is_tree_balanced(root), False)
+        self.assertEqual(is_tree_balanced(root), False)
 
     def test_one_element_tree(self):
         root = BinaryTree(1)
 
-        self.assertEqual(BinaryTree.is_tree_balanced(root), True)
+        self.assertEqual(is_tree_balanced(root), True)
 
 
 if __name__ == '__main__':
