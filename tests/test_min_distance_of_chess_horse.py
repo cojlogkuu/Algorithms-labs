@@ -13,3 +13,10 @@ class Test(unittest.TestCase):
         with open('../resources/wrong_output', 'r') as file:
             result = int(file.readline())
         self.assertEqual(result, -1)
+
+    def test_small_board_input(self):
+        get_min_distance_of_chess_horse('../resources/small_board_input', '../resources/small_board_output')
+        with open('../resources/small_board_output', 'r') as file:
+            result = int(file.readline())
+        self.assertEqual(result, -1)
+

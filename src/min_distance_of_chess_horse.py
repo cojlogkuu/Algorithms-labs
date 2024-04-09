@@ -1,4 +1,7 @@
 def get_min_distance_by_bfs(border_size, start_position, end_position):
+    if border_size < 3:
+        return -1
+
     dist_to = {
         start_position: 0,
     }
@@ -17,7 +20,7 @@ def get_min_distance_by_bfs(border_size, start_position, end_position):
             if neighbor == end_position:
                 return dist_to[vertex] + 1
 
-            if neighbor in visited or neighbor[0] >= border_size or neighbor[0] < 0 or neighbor[1] >= border_size or \
+            if neighbor in visited or neighbor[0] >= border_size - 1 or neighbor[0] < 0 or neighbor[1] >= border_size - 1 or \
                     neighbor[1] < 0:
                 continue
 
