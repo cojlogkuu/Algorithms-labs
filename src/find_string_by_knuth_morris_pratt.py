@@ -5,7 +5,7 @@ def get_prefixes(string):
     while string_pointer < len(string):
         if string[prefix_pointer] != string[string_pointer]:
             if prefix_pointer > 0:
-                prefix_pointer = 0
+                prefix_pointer = prefix[prefix_pointer - 1]
             else:
                 string_pointer += 1
         else:
