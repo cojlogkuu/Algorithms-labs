@@ -9,7 +9,7 @@ def read_data(input_file_name: str) -> List[Tuple[str, str, int]]:
     return graph
 
 
-def make_disjoint_set(graph: List[Tuple[str, str, int]]) -> Dict[str, Union[str, int]]:
+def make_disjoint_set(graph: List[Tuple[str, str, int]]) -> Dict[str, str | int]:
     parents_disjoint_set = {}
     for vertex, vertex_neighbour, _ in graph:
         if vertex not in parents_disjoint_set.keys():
