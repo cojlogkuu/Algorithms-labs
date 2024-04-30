@@ -11,3 +11,6 @@ class Test(unittest.TestCase):
     def test_not_connected_wells(self):
         self.assertEqual(get_min_length_of_cable('../resources/communication_wells_not_connected.csv'), -1)
 
+
+if __name__ == '__main__':
+    unittest.main()
