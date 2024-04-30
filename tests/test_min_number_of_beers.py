@@ -16,3 +16,7 @@ class Test(unittest.TestCase):
 
     def test_one_beer(self):
         self.assertEqual(get_min_number_of_beers(2, 1, 'Y Y'), 1)
+
+
+if __name__ == '__main__':
+    unittest.main()

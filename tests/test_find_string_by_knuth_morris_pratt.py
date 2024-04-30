@@ -23,3 +23,7 @@ class Test(unittest.TestCase):
         needle = ' '
         haystack = 'Bodya lets go play football. '
         self.assertEqual(find_string_by_knuth_morris_pratt(haystack, needle), [5, 10, 13, 18, 28])
+
+
+if __name__ == '__main__':
+    unittest.main()
