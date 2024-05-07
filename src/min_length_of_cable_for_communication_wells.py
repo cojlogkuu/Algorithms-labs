@@ -1,5 +1,5 @@
 import csv
-from typing import List, Tuple, Dict, Union
+from typing import List, Tuple, Dict
 
 
 def read_data(input_file_name: str) -> List[Tuple[str, str, int]]:
@@ -19,14 +19,14 @@ def make_disjoint_set(graph: List[Tuple[str, str, int]]) -> Dict[str, str | int]
     return parents_disjoint_set
 
 
-def get_parent(vertex: str, disjoint_set: Dict[str, Union[str, int]]) -> str:
+def get_parent(vertex: str, disjoint_set: Dict[str, str | int]) -> str:
     if type(disjoint_set[vertex]) is int:
         return vertex
 
     return get_parent(disjoint_set[vertex], disjoint_set)
 
 
-def union(vertex: str, neighbour_vertex: str, disjoint_set: dict) -> Dict[str, Union[str, int]]:
+def union(vertex: str, neighbour_vertex: str, disjoint_set: dict) -> None:
     if disjoint_set[vertex] >= disjoint_set[neighbour_vertex]:
         disjoint_set[vertex] += disjoint_set[neighbour_vertex]
         disjoint_set[neighbour_vertex] = vertex
@@ -34,17 +34,16 @@ def union(vertex: str, neighbour_vertex: str, disjoint_set: dict) -> Dict[str, U
         disjoint_set[neighbour_vertex] += disjoint_set[vertex]
         disjoint_set[vertex] = neighbour_vertex
 
-    return disjoint_set
 
-
-def kruskal(graph: List[Tuple[str, str, int]], parents_disjoint_set: Dict[str, Union[str, int]]) -> int:
+def kruskal(graph: List[Tuple[str, str, int]], parents_disjoint_set: Dict[str, str | int]) -> int:
     min_length = 0
+
     for vertex, neighbour_vertex, weight in graph:
         parent_of_vertex = get_parent(vertex, parents_disjoint_set)
         parent_of_neighbour_vertex = get_parent(neighbour_vertex, parents_disjoint_set)
         if parent_of_vertex != parent_of_neighbour_vertex:
             min_length += weight
-            parents_disjoint_set = union(parent_of_vertex, parent_of_neighbour_vertex, parents_disjoint_set)
+            union(parent_of_vertex, parent_of_neighbour_vertex, parents_disjoint_set)
 
     return min_length
 
